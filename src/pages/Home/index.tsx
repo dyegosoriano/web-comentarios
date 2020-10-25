@@ -45,8 +45,8 @@ const Home: React.FC = () => {
 
       <Container>
         {allPosts.map((post: Post) => (
-          <Link to={`post/${post.id}`}>
-            <BoxPost key={post.id} post={post} />
+          <Link key={post.id} to={`post/${post.id}`}>
+            <BoxPost post={post} />
           </Link>
         ))}
       </Container>
