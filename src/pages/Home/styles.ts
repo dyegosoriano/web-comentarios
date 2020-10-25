@@ -27,3 +27,23 @@ export const Container = styled.div`
     grid-template-columns: 1fr;
   }
 `
+export const Footer = styled.div`
+  width: 100vw;
+
+  display: flex;
+  justify-content: center;
+
+  button {
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: none;
+    transition: background 0.2s;
+
+    :hover {
+      background: #b388ff;
+    }
+  }
+`

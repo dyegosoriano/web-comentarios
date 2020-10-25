@@ -9,7 +9,7 @@ export const Container = styled.div`
 
   font-weight: 300;
   background: #fff;
-  border-radius: 8px;
+  border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
   .divider {
@@ -17,5 +17,9 @@ export const Container = styled.div`
     height: 1px;
     margin: 20px 0;
     background: #eeeeee;
+  }
+
+  @media (max-width: 720px) {
+    margin: 20px 20px 0 20px;
   }
 `

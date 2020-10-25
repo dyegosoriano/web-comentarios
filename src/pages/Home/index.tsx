@@ -5,7 +5,7 @@ import BoxPost from '../../components/BoxPost'
 import Header from '../../components/Header'
 import api from '../../services/api'
 
-import { Container } from './styles'
+import { Container, Footer } from './styles'
 
 export interface Post {
   id: number
@@ -16,15 +16,21 @@ export interface Post {
 
 const Home: React.FC = () => {
   const [allPosts, setAllPosts] = useState<Post[]>([])
+  const [page, setPage] = useState(1)
 
   async function getAllPosts() {
     try {
-      const response = await api.get('posts')
+      const response = await api.get('posts', { params: { page } })
 
       setAllPosts([...allPosts, ...response.data])
+      setPage(page + 1)
     } catch (error) {
       console.log(`error.message >>> ${error.message} <<<`)
     }
+  }
+
+  function handleClick() {
+    getAllPosts()
   }
 
   useEffect(() => {
@@ -42,6 +48,10 @@ const Home: React.FC = () => {
           </Link>
         ))}
       </Container>
+
+      <Footer>
+        <button onClick={handleClick}>Carregar...</button>
+      </Footer>
     </>
   )
 }
