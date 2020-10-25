@@ -1,19 +1,22 @@
 import React from 'react'
 
-import Comment from '../Comment'
-
 import { Container } from './styles'
 
-const Post: React.FC = () => {
+interface PostItem {
+  id: number
+  message: string
+  createdAt: string
+  updatedAt: string
+}
+
+interface PostItemProps {
+  post: PostItem
+}
+
+const Post: React.FC<PostItemProps> = ({ post }) => {
   return (
     <Container>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti sint
-        ex cupiditate officiis, veritatis quaerat voluptate ducimus eligendi!
-        Soluta, rem facilis eum velit debitis id. Vero laudantium ad nobis quae.
-      </p>
-
-      <Comment />
+      <p>{post.message}</p>
     </Container>
   )
 }
