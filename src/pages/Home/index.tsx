@@ -9,7 +9,12 @@ const Home: React.FC = () => {
   return (
     <>
       <Header />
+
       <Container>
+        <Post />
+        <Post />
+        <Post />
+        <Post />
         <Post />
       </Container>
     </>
