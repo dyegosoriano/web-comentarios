@@ -1,13 +1,13 @@
 import React from 'react'
 
 import GlobalStyle from './styles/global'
+import Home from './pages/Home'
 
 export default function App() {
   return (
     <>
-      <h1>Olá mundo!</h1>
-
       <GlobalStyle />
+      <Home />
     </>
   )
 }
