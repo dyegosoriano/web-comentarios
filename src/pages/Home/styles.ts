@@ -28,10 +28,12 @@ export const Container = styled.div`
   }
 `
 export const Footer = styled.div`
-  width: 100vw;
+  max-width: 400px;
+  margin: 0 auto;
 
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
 
   button {
     border-radius: 8px;

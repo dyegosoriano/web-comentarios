@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import BoxPost from '../../components/BoxPost'
 import Header from '../../components/Header'
@@ -15,6 +15,8 @@ export interface Post {
 }
 
 const Home: React.FC = () => {
+  const history = useHistory()
+
   const [allPosts, setAllPosts] = useState<Post[]>([])
   const [page, setPage] = useState(1)
 
@@ -51,6 +53,7 @@ const Home: React.FC = () => {
 
       <Footer>
         <button onClick={handleClick}>Carregar...</button>
+        <button onClick={() => history.push('newPost')}>Novo post</button>
       </Footer>
     </>
   )
