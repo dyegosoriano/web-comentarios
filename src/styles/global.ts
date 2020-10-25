@@ -8,11 +8,13 @@ export default createGlobalStyle`
   }
 
   body {
-    background: #fff;
+    background: #eee;
     color: #212121;
   }
 
   body, input, button, textarea {
-    font: 600 18px sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
   }
 `
