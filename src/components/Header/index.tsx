@@ -1,5 +1,6 @@
 import React from 'react'
 import { MdPerson } from 'react-icons/md'
+import { Link } from 'react-router-dom'
 
 import { Container } from './styles'
 
@@ -7,7 +8,7 @@ const Header: React.FC = () => {
   return (
     <Container>
       <div className="container">
-        <h1>Facebook</h1>
+        <Link to="/">Facebook</Link>
 
         <div className="user-area">
           <span>Meu perfil</span>

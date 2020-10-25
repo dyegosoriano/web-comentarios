@@ -11,8 +11,14 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
 
+  a {
+    font-size: 1.8rem;
+    text-decoration: none;
+    color: #fff;
+  }
+
   .container {
-    width: 920px;
+    width: 95%;
 
     display: flex;
     justify-content: space-between;
@@ -30,9 +36,7 @@ export const Container = styled.div`
 
   @media (max-width: 960px) {
     .container {
-      margin: 0 10px;
-
-      h1 {
+      a {
         font-size: 1.5rem;
       }
 
