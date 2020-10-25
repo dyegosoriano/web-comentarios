@@ -2,8 +2,9 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   max-width: 920px;
-  height: calc(100vh - 60px);
   margin: 0 auto;
 
-  background: #fff;
+  @media (max-width: 920px) {
+    padding: 0 20px;
+  }
 `

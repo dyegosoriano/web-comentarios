@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Header from '../../components/Header'
+import Post from '../../components/Post'
 
 import { Container } from './styles'
 
@@ -9,7 +10,7 @@ const Home: React.FC = () => {
     <>
       <Header />
       <Container>
-        <h1>Home</h1>
+        <Post />
       </Container>
     </>
   )
