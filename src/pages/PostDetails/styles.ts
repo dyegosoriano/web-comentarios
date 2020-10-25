@@ -19,6 +19,34 @@ export const Container = styled.div`
     background: #eeeeee;
   }
 
+  .new-comment {
+    width: 100%;
+    margin-top: 10px;
+
+    display: flex;
+
+    input {
+      width: 100%;
+      margin-right: 10px;
+      border-radius: 4px;
+      padding-left: 10px;
+      border: 1px solid #ddd;
+    }
+
+    button {
+      width: 30px;
+      height: 30px;
+
+      border-radius: 30px;
+      background: #00c853;
+      border: none;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
   @media (max-width: 720px) {
     margin: 20px 20px 0 20px;
   }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { MdAdd } from 'react-icons/md'
 import { useParams } from 'react-router-dom'
 
 import BoxComment from '../../components/BoxComment'
@@ -20,6 +21,7 @@ const PostDetails: React.FC = () => {
   const { id }: any = useParams()
 
   const [comments, setComments] = useState<Comment[]>([])
+  const [comment, setComment] = useState('')
   const [post, setPost] = useState<Post>()
 
   async function getPost() {
@@ -42,6 +44,23 @@ const PostDetails: React.FC = () => {
     }
   }
 
+  async function postNewComment() {
+    try {
+      if (!comment) {
+        alert(
+          'Você precisa preencher a caixa de texto para enviar um novo comentário'
+        )
+        return
+      }
+
+      const response = await api.post(`/posts/${id}/comments`, { comment })
+
+      setComments([...comments, response.data])
+    } catch (error) {
+      console.log(`error.message >>> ${error.message} <<<`)
+    }
+  }
+
   useEffect(() => {
     getPost()
     getCommentary()
@@ -53,6 +72,19 @@ const PostDetails: React.FC = () => {
 
       <Container>
         <p>{post?.message} </p>
+
+        <div className="new-comment">
+          <input
+            onChange={event => setComment(event.target.value)}
+            placeholder="insira um novo comentário"
+            value={comment}
+            type="text"
+          />
+
+          <button onClick={postNewComment}>
+            <MdAdd size={24} color="#fff" />
+          </button>
+        </div>
 
         {comments.length !== 0 && <div className="divider" />}
 
