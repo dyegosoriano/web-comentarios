@@ -10,6 +10,11 @@ export const Container = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
 
+  a {
+    text-decoration: none;
+    color: #212121;
+  }
+
   @media (max-width: 960px) {
     padding: 0 20px;
   }

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import api from '../../services/api'
+import { Link } from 'react-router-dom'
 
+import BoxPost from '../../components/BoxPost'
 import Header from '../../components/Header'
-import Post from '../../components/Post'
+import api from '../../services/api'
 
 import { Container } from './styles'
 
-interface Post {
+export interface Post {
   id: number
   message: string
   createdAt: string
@@ -16,17 +17,17 @@ interface Post {
 const Home: React.FC = () => {
   const [allPosts, setAllPosts] = useState<Post[]>([])
 
-  useEffect(() => {
-    async function getAllPosts() {
-      try {
-        const response = await api.get('posts')
+  async function getAllPosts() {
+    try {
+      const response = await api.get('posts')
 
-        setAllPosts([...allPosts, ...response.data])
-      } catch (error) {
-        console.log(`error.message >>> ${error.message} <<<`)
-      }
+      setAllPosts([...allPosts, ...response.data])
+    } catch (error) {
+      console.log(`error.message >>> ${error.message} <<<`)
     }
+  }
 
+  useEffect(() => {
     getAllPosts()
   }, [])
 
@@ -36,7 +37,9 @@ const Home: React.FC = () => {
 
       <Container>
         {allPosts.map((post: Post) => (
-          <Post key={post.id} post={post} />
+          <Link to={`post/${post.id}`}>
+            <BoxPost key={post.id} post={post} />
+          </Link>
         ))}
       </Container>
     </>
